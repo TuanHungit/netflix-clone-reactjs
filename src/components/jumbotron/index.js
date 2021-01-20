@@ -6,13 +6,18 @@ import {
   Title,
   SubTitle,
   Image,
+  Item,
 } from './styles/jumbotron';
 export default function Jumpotron({
   children,
   direction = 'row',
   ...restProps
 }) {
-  return <Inner direction={direction}>{children}</Inner>;
+  return (
+    <Item direction={direction}>
+      <Inner>{children}</Inner>
+    </Item>
+  );
 }
 
 Jumpotron.Container = ({ children, ...restProps }) => {
