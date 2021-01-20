@@ -21,7 +21,13 @@ export const Inner = styled.div`
   }
 `;
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  @media (max-width: 1000px) {
+    ${Item}: last-of-type h2 {
+      margin-bottom: 50px;
+    }
+  }
+`;
 
 export const Pane = styled.div`
   width: 50%;
@@ -34,8 +40,8 @@ export const Pane = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 50px;
-  font-weight: 1.1;
+  font-size: 55px;
+  font-weight: bold;
   margin-bottom: 8px;
 
   @media (max-width: 600px) {

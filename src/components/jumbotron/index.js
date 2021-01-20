@@ -8,33 +8,33 @@ import {
   Image,
   Item,
 } from './styles/jumbotron';
-export default function Jumpotron({
+export default function Jumbotron({
   children,
   direction = 'row',
   ...restProps
 }) {
   return (
-    <Item direction={direction}>
-      <Inner>{children}</Inner>
+    <Item {...restProps}>
+      <Inner direction={direction}>{children}</Inner>
     </Item>
   );
 }
 
-Jumpotron.Container = ({ children, ...restProps }) => {
+Jumbotron.Container = ({ children, ...restProps }) => {
   return <Container {...restProps}>{children}</Container>;
 };
-Jumpotron.Pane = ({ children, ...restProps }) => {
+Jumbotron.Pane = ({ children, ...restProps }) => {
   return <Pane {...restProps}>{children}</Pane>;
 };
 
-Jumpotron.Title = ({ children, ...restProps }) => {
+Jumbotron.Title = ({ children, ...restProps }) => {
   return <Title {...restProps}>{children}</Title>;
 };
 
-Jumpotron.SubTitle = ({ children, ...restProps }) => {
+Jumbotron.SubTitle = ({ children, ...restProps }) => {
   return <SubTitle {...restProps}>{children}</SubTitle>;
 };
 
-Jumpotron.Image = ({ ...restProps }) => {
+Jumbotron.Image = ({ ...restProps }) => {
   return <Image {...restProps} />;
 };
