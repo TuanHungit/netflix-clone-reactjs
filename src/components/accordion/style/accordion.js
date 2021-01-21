@@ -14,8 +14,12 @@ export const Inner = styled.div`
 
 export const Item = styled.div`
   color: white;
-  margin-bottom: 10px;
-  max-width: 670px;
+  margin: auto;
+  margin-bottom: 8px;
+  width: 100%;
+
+  max-width: 690px;
+
   &:first-of-type: {
     margin-top: 3em;
   }
