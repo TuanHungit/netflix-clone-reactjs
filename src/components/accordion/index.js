@@ -8,7 +8,7 @@ import {
   Title,
   Header,
   Body,
-} from './style/accordion';
+} from './styles/accordion';
 
 const ToggleContext = createContext();
 export default function Accordion({ children, ...restProps }) {
