@@ -18,11 +18,19 @@ export default function Signup() {
     event.preventDefault();
     firebase
       .auth()
-      .signInWithEmailAndPassword(emailAddress, password)
+      .createUserWithEmailAndPassword(emailAddress, password)
       .then((res) => {
-        history.push(ROUTES.BROWSE);
+        res.user
+          .updateProfile({
+            displayName: firstName,
+            photoURL: Math.floor(Math.random() * 5) + 1,
+          })
+          .then(() => {
+            history.push(ROUTES.BROWSE);
+          });
       })
       .catch((error) => {
+        setFirstName('');
         setEmailAddress('');
         setPassword('');
         setError(error.message);
@@ -38,7 +46,7 @@ export default function Signup() {
             <Form.Input
               placeholder="First name"
               onChange={({ target }) => setFirstName(target.value)}
-              value={emailAddress}
+              value={firstName}
             />
             <Form.Input
               placeholder="Email address"
