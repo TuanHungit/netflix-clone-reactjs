@@ -1,11 +1,13 @@
 import React from 'react';
-import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
+import { Switch, BrowserRouter as Router, Redirect } from 'react-router-dom';
 
 import { Home, Signin, Signup, Browse } from './pages';
 import * as ROUTES from './constrains/routes';
 import { ProtectedRoute, IsUserRedirect } from './helpers/routes';
+import { userAuthListener } from './hooks';
 export default function App() {
-  const user = null;
+  const user = userAuthListener();
+
   return (
     <Router>
       <Switch>
@@ -31,6 +33,7 @@ export default function App() {
         <ProtectedRoute exact path={ROUTES.BROWSE} user={user}>
           <Browse />
         </ProtectedRoute>
+        <Redirect to={ROUTES.HOME} />
       </Switch>
     </Router>
   );
