@@ -3,6 +3,7 @@ import { Footer } from '../components';
 export default () => {
   return (
     <Footer>
+      <Footer.Break />
       <Footer.Title>Question? Contact us.</Footer.Title>
 
       <Footer.Row>

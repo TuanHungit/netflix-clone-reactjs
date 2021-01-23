@@ -1,7 +1,7 @@
-import styled from 'styled-components/macro';
+import styled, { css } from 'styled-components/macro';
 import { Link as ReactRouterLink } from 'react-router-dom';
-
-export const Container = styled.div`
+import { Form, Field } from 'formik';
+export const Container = styled(Form)`
   display: flex;
   flex-direction: column;
   min-height: 560px;
@@ -21,13 +21,6 @@ export const Error = styled.div`
   margin: 0 0 16px;
   color: white;
   padding: 15px 20px;
-`;
-
-export const Base = styled.form`
-  display: flex;
-  flex-direction: column;
-  max-width: 450px;
-  width: 100%;
 `;
 
 export const Title = styled.h1`
@@ -58,7 +51,7 @@ export const Link = styled(ReactRouterLink)`
   }
 `;
 
-export const Input = styled.input`
+export const Input = styled(Field)`
   background: #333;
   border-radius: 4px;
   border: 0;
@@ -66,15 +59,31 @@ export const Input = styled.input`
   height: 40px;
   line-height: 50px;
   padding: 5px 20px;
-  margin-bottom: 20px;
-  &:last-of-type {
-    margin-bottom: 30px;
-  }
+  margin-top: 20px;
+
   @-webkit-keyframes autofill {
     to {
       background: #333;
     }
   }
+
+  &:focus,
+  &:active {
+    border: 1px solid #e87c03;
+    outline: none;
+  }
+
+  ${({ valid }) =>
+    valid &&
+    css`
+      border: 0;
+    `}
+
+  ${({ error }) =>
+    error &&
+    css`
+      border-bottom: 2px solid #e87c03;
+    `}
 `;
 
 export const Button = styled.button`
@@ -90,4 +99,11 @@ export const Button = styled.button`
   &:disabled {
     opacity: 0.5;
   }
+`;
+
+export const StyledInlineErrorMessage = styled.div`
+  color: #e87c03;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  white-space: pre-line;
 `;

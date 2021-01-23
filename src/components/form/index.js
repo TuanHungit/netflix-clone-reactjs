@@ -2,13 +2,13 @@ import React from 'react';
 import {
   Container,
   Error,
-  Base,
   Title,
   Text,
   TextSmall,
   Link,
   Button,
   Input,
+  StyledInlineErrorMessage,
 } from './styles/form';
 
 export default function Form({ children, ...restProps }) {
@@ -21,9 +21,7 @@ Form.Error = function FormError({ children, ...restProps }) {
 Form.TextSmall = function FormTextSmall({ children, ...restProps }) {
   return <TextSmall {...restProps}>{children}</TextSmall>;
 };
-Form.Base = function FormBase({ children, ...restProps }) {
-  return <Base {...restProps}>{children}</Base>;
-};
+
 Form.Title = function FormTitle({ children, ...restProps }) {
   return <Title {...restProps}>{children}</Title>;
 };
@@ -38,4 +36,15 @@ Form.Button = function FormButton({ children, ...restProps }) {
 };
 Form.Input = function FormInput({ children, ...restProps }) {
   return <Input {...restProps}>{children}</Input>;
+};
+
+Form.StyledInlineErrorMessage = function FormStyledInlineErrorMessage({
+  children,
+  ...restProps
+}) {
+  return (
+    <StyledInlineErrorMessage {...restProps}>
+      {children}
+    </StyledInlineErrorMessage>
+  );
 };
