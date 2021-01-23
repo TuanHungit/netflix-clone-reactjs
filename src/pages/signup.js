@@ -8,15 +8,15 @@ import HeaderContainer from './../containers/header';
 import FooterContainer from '../containers/footer';
 import { Form } from '../components';
 import * as ROUTES from '../constrains/routes';
-import { firebase } from '../lib/firebase.prod';
+
 export default function Signin() {
   const history = useHistory();
-  // const firebase = useContext(FirebaseContext);
+  const { firebase } = useContext(FirebaseContext);
 
   const [error, setError] = useState('');
 
   const submitHandler = ({ firstName, email, password }, actions) => {
-    firebase
+    return firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then((res) => {
