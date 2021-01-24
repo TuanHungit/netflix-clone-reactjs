@@ -49,7 +49,7 @@ export default function Signin() {
 
   return (
     <>
-      <HeaderContainer>
+      <HeaderContainer isSignin>
         <Formik
           initialValues={{
             firstName: '',
