@@ -16,7 +16,7 @@ export const Background = styled.div`
       top left / cover no-repeat;
 `;
 
-export const Container = styled.div`
+export const Frame = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
