@@ -1,5 +1,10 @@
 import React from 'react';
-import { Switch, BrowserRouter as Router, Redirect } from 'react-router-dom';
+import {
+  Switch,
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+} from 'react-router-dom';
 
 import { Home, Signin, Signup, Browse } from './pages';
 import * as ROUTES from './constrains/routes';
@@ -11,28 +16,28 @@ export default function App() {
   return (
     <Router>
       <Switch>
-        <IsUserRedirect exact path={ROUTES.HOME}>
+        <Route exact path={ROUTES.HOME}>
           <Home />
-        </IsUserRedirect>
-        <IsUserRedirect
+        </Route>
+        <Route
           exact
           path={ROUTES.SIGN_IN}
           loggedInPath={ROUTES.BROWSE}
           user={user}
         >
           <Signin />
-        </IsUserRedirect>
-        <IsUserRedirect
+        </Route>
+        <Route
           exact
           path={ROUTES.SIGN_IN}
           loggedInPath={ROUTES.BROWSE}
           user={user}
         >
           <Signup />
-        </IsUserRedirect>
-        <ProtectedRoute exact path={ROUTES.BROWSE} user={user}>
+        </Route>
+        <Route exact path={ROUTES.BROWSE} user={user}>
           <Browse />
-        </ProtectedRoute>
+        </Route>
         <Redirect to={ROUTES.HOME} />
       </Switch>
     </Router>

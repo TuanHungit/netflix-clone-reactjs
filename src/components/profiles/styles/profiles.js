@@ -36,7 +36,7 @@ export const Name = styled.p`
 
 export const Picture = styled.img`
   width: 100%;
-  max-width: 150px;
+  max-width: 80px;
   height: auto;
   border: 3px solid black;
   cursor: pointer;
@@ -48,6 +48,7 @@ export const Item = styled.li`
   list-style-type: none;
   text-align: center;
   margin-right: 30px;
+  margin-top: 20px;
   &:hover > ${Picture} {
     border: 3px solid white;
   }
